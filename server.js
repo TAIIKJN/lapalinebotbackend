@@ -7,8 +7,7 @@ require("dotenv").config();
 const app = express();
 
 const config = {
-  channelAccessToken:
-    "5bUkBdnDH5cKpjmZz6k5WBKveWLYq2SV7YzHxinuaXyoVBR4pYl0aN7W0PXv/1GS2UuNeuuk12KJ3YEPYxdbld8BJ8vpxPHsDMp09xWpgDqWkFdE5oUf6ZsNjEcyTCoqoM+5P9zMPJrzExutaiZzYQdB04t89/1O/w1cDnyilFU=",
+  channelAccessToken: "5bUkBdnDH5cKpjmZz6k5WBKveWLYq2SV7YzHxinuaXyoVBR4pYl0aN7W0PXv/1GS2UuNeuuk12KJ3YEPYxdbld8BJ8vpxPHsDMp09xWpgDqWkFdE5oUf6ZsNjEcyTCoqoM+5P9zMPJrzExutaiZzYQdB04t89/1O/w1cDnyilFU=",
   channelSecret: "402afab3fec3d25e5fe92ef83ea75cf7"
 };
 
@@ -37,7 +36,7 @@ function handleEvent(event) {
   } else {
     return Promise.resolve(null);
   }
-  
+
 }
 
 function handleMessageEvent(event) {
@@ -53,10 +52,9 @@ function handleMessageEvent(event) {
         body: {
           type: "box",
           layout: "vertical",
-          contents: [
-            {
+          contents: [{
               type: "image",
-              url:"https://www.img.in.th/images/633ae8afdb0b1ad06d7e457c341b32cd.jpg",
+              url: "https://www.img.in.th/images/633ae8afdb0b1ad06d7e457c341b32cd.jpg",
               align: "center",
               gravity: "center",
               size: "full",
@@ -70,7 +68,7 @@ function handleMessageEvent(event) {
             },
             {
               type: "image",
-              url:"https://www.img.in.th/images/72c3eef9a745bc4aaeb3249471002757.jpg",
+              url: "https://www.img.in.th/images/72c3eef9a745bc4aaeb3249471002757.jpg",
               align: "center",
               gravity: "center",
               size: "full",
@@ -97,8 +95,7 @@ function handleMessageEvent(event) {
         body: {
           type: "box",
           layout: "vertical",
-          contents: [
-            {
+          contents: [{
               type: "image",
               url: "https://sv1.picz.in.th/images/2020/05/25/qTrOqS.jpg",
               align: "center",
@@ -136,16 +133,15 @@ function handleMessageEvent(event) {
     console.log(query);
     var jj = "";
 
-    con.connect(function(err) {
+    con.connect(function (err) {
 
-      con.query(query, function(err, result, fields) {
+      con.query(query, function (err, result, fields) {
         // if (err) throw err;
         jj = result[0];
-        setTimeout(function() {
+        setTimeout(function () {
           if (jj.STATUS == "ประชาชนทั่วไป") {
             const options = {
-              url:
-                "https://api.line.me/v2/bot/user/" +
+              url: "https://api.line.me/v2/bot/user/" +
                 event.source.userId +
                 "/richmenu/richmenu-cdadeaecf573ea9bc890cdb8da427c6e",
               method: "POST",
@@ -156,8 +152,7 @@ function handleMessageEvent(event) {
             request(options);
           } else if (jj.STATUS == "อสม") {
             const options = {
-              url:
-                "https://api.line.me/v2/bot/user/" +
+              url: "https://api.line.me/v2/bot/user/" +
                 event.source.userId +
                 "/richmenu/richmenu-75c2e803d39ecb59a1b3b05b0b0aeb1c",
               method: "POST",
@@ -168,8 +163,7 @@ function handleMessageEvent(event) {
             request(options);
           } else if (jj.STATUS == "หมอ") {
             const options = {
-              url:
-                "https://api.line.me/v2/bot/user/" +
+              url: "https://api.line.me/v2/bot/user/" +
                 event.source.userId +
                 "/richmenu/richmenu-cadc9581c3a74ee72cbac02f940d55a1",
               method: "POST",
@@ -187,11 +181,11 @@ function handleMessageEvent(event) {
           console.log(jj.USERID, "undefined");
           console.log(!jj.USERID);
           if (!jj.USERID) {
-            con.connect(function(err) {
+            con.connect(function (err) {
               // if (err) { console.log(err)};
               var sql = `UPDATE PERSON SET USERID = '${event.source.userId}' WHERE CID = '${jj.CID}'`;
               console.log(sql);
-              con.query(sql, function(err, result) {
+              con.query(sql, function (err, result) {
                 // if (err) { console.log(err)};
                 //console.log(result.affectedRows + " record(s) updated");
               });
@@ -200,10 +194,23 @@ function handleMessageEvent(event) {
         }, 1000);
       });
     });
-    
-   }
+
+  } 
+  // else if (eventText.split(" ")[0] == "Search") {
+  //   var query = `SELECT * FROM PERSON WHERE CID = '${eventText.split(" ")[1]}'`;
+  //   console.log(query);
+  //   var kk = "";
+
+  //   con.connect(function (err) {
+
+  //     con.query(query, function (err, result, fields) {
+  //       // if (err) throw err;
+  //       kk = result[0];
+  //     });
+  //   });
+  // }
 
 }
-  const listener = app.listen(process.env.PORT, () => {
-    console.log("♥ ♥ l Your app is listening  p on port " + listener.address().port);
-  });
+const listener = app.listen(process.env.PORT, () => {
+  console.log("♥ ♥ l Your app is listening  p on port " + listener.address().port);
+});
