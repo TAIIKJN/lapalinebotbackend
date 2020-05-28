@@ -195,20 +195,19 @@ function handleMessageEvent(event) {
       });
     });
 
-  } 
-  // else if (eventText.split(" ")[0] == "Search") {
-  //   var query = `SELECT * FROM PERSON WHERE CID = '${eventText.split(" ")[1]}'`;
-  //   console.log(query);
-  //   var kk = "";
+  }  else if (eventText.split(" ")[0] == "Search") {
+    var query = `SELECT * FROM PERSON WHERE CID = '${eventText.split(" ")[1]}'`;
+    console.log(query);
+    var kk = "";
 
-  //   con.connect(function (err) {
+    con.connect(function (err) {
 
-  //     con.query(query, function (err, result, fields) {
-  //       // if (err) throw err;
-  //       kk = result[0];
-  //     });
-  //   });
-  // }
+      con.query(query, function (err, result, fields) {
+        // if (err) throw err;
+        kk = result[0];
+      });
+    });
+  }
 
 }
 const listener = app.listen(process.env.PORT, () => {
