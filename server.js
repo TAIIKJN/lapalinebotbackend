@@ -195,7 +195,7 @@ function handleMessageEvent(event) {
       });
     });
 
-  }  else if (eventText.split(" ")[0] == "Search") {
+  }  else if (eventText.split(" ")[0] == "search") {
     var query = `SELECT * FROM PERSON WHERE CID = '${eventText.split(" ")[1]}'`;
     console.log(query);
     var kk = "";
