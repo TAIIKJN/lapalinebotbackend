@@ -195,7 +195,7 @@ function handleMessageEvent(event) {
       });
     });
 
-  }  else if (eventText.split(" ")[0] == "search") {
+  } else if (eventText.split(" ")[0] == "search") {
     var query = `SELECT * FROM PERSON WHERE CID = '${eventText.split(" ")[1]}'`;
     console.log(query);
     var kk = "";
@@ -203,6 +203,121 @@ function handleMessageEvent(event) {
       con.query(query, function (err, result, fields) {
         // if (err) throw err;
         console.log(result);
+        var data = result[0];
+        var msg = {
+          "type": "flex",
+          "altText": "Flex Message",
+          "contents": {
+            "type": "bubble",
+            "body": {
+              "type": "box",
+              "layout": "vertical",
+              "contents": [{
+                  "type": "text",
+                  "text": "กาญจนา เก่งกาจ",
+                  "size": "xl",
+                  "weight": "bold"
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "spacing": "sm",
+                  "margin": "lg",
+                  "contents": [{
+                      "type": "box",
+                      "layout": "baseline",
+                      "spacing": "sm",
+                      "contents": [{
+                          "type": "text",
+                          "text": "เลขบัตรปชช",
+                          "flex": 3,
+                          "size": "sm",
+                          "align": "center",
+                          "gravity": "center",
+                          "color": "#AAAAAA"
+                        },
+                        {
+                          "type": "text",
+                          "text": "12346587900",
+                          "flex": 5,
+                          "size": "sm",
+                          "color": "#666666",
+                          "wrap": true
+                        }
+                      ]
+                    },
+                    {
+                      "type": "box",
+                      "layout": "baseline",
+                      "spacing": "sm",
+                      "contents": [{
+                          "type": "text",
+                          "text": "ข้อมูลส่วนตัว",
+                          "flex": 3,
+                          "size": "sm",
+                          "color": "#AAAAAA"
+                        },
+                        {
+                          "type": "text",
+                          "text": "บ้านเลขที่ 22 ม.11 ต.ป่าไผ่ อ.สันทราย จ.เชียงใหม่",
+                          "flex": 5,
+                          "size": "sm",
+                          "color": "#666666",
+                          "wrap": true
+                        }
+                      ]
+                    },
+                    {
+                      "type": "box",
+                      "layout": "baseline",
+                      "contents": [{
+                          "type": "text",
+                          "text": "วันเกิด",
+                          "flex": 3,
+                          "size": "sm",
+                          "weight": "bold",
+                          "color": "#AAAAAA"
+                        },
+                        {
+                          "type": "text",
+                          "text": "23/03/2541(22)",
+                          "flex": 5,
+                          "size": "sm",
+                          "wrap": true
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "footer": {
+              "type": "box",
+              "layout": "vertical",
+              "flex": 0,
+              "spacing": "sm",
+              "contents": [{
+                  "type": "button",
+                  "action": {
+                    "type": "uri",
+                    "label": "เริ่มคัดกรอง",
+                    "uri": "https://linecorp.com"
+                  },
+                  "height": "sm",
+                  "style": "link"
+                },
+                {
+                  "type": "button",
+                  "action": {
+                    "type": "uri",
+                    "label": "ดูประวัติการคัดกรอง",
+                    "uri": "https://linecorp.com"
+                  }
+                }
+              ]
+            }
+          }
+        }
       });
     });
   }
