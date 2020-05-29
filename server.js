@@ -323,7 +323,177 @@ function handleMessageEvent(event) {
         return client.replyMessage(event.replyToken, msg);
       });
     });
-  } //else if ()
+  } else if (eventText === "ประวัติส่วนตัวของฉัน") {
+    var msg = {
+      "type": "flex",
+      "altText": "Flex Message",
+      "contents": {
+        "type": "bubble",
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [{
+              "type": "text",
+              "text": "กาญจนา เก่งกาจ",
+              "flex": 4,
+              "size": "xl",
+              "weight": "bold"
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "spacing": "sm",
+              "margin": "lg",
+              "contents": [{
+                  "type": "box",
+                  "layout": "baseline",
+                  "spacing": "sm",
+                  "contents": [{
+                      "type": "text",
+                      "text": "เลขบัตรปชช",
+                      "flex": 3,
+                      "size": "sm",
+                      "color": "#AAAAAA"
+                    },
+                    {
+                      "type": "text",
+                      "text": "123456789012300",
+                      "flex": 5,
+                      "size": "sm",
+                      "color": "#666666",
+                      "wrap": true
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "baseline",
+                  "spacing": "sm",
+                  "contents": [{
+                      "type": "text",
+                      "text": "เลขที่ผู้ป่วย",
+                      "flex": 3,
+                      "size": "sm",
+                      "color": "#AAAAAA"
+                    },
+                    {
+                      "type": "text",
+                      "text": "122234567890",
+                      "flex": 5,
+                      "size": "sm",
+                      "color": "#666666"
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "baseline",
+                  "spacing": "sm",
+                  "contents": [{
+                      "type": "text",
+                      "text": "ข้อมูลส่วนตัว",
+                      "flex": 3,
+                      "size": "sm",
+                      "color": "#AAAAAA"
+                    },
+                    {
+                      "type": "text",
+                      "text": " รร/ตคต-ตุึถุุึคตจรี้ัเะดกเ้่า",
+                      "flex": 5,
+                      "size": "sm",
+                      "color": "#666666",
+                      "wrap": true
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "baseline",
+                  "spacing": "sm",
+                  "contents": [{
+                      "type": "text",
+                      "text": "เพศ",
+                      "flex": 3,
+                      "size": "sm",
+                      "color": "#AAAAAA"
+                    },
+                    {
+                      "type": "text",
+                      "text": "หญิง",
+                      "flex": 5,
+                      "size": "sm",
+                      "color": "#666666"
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "baseline",
+                  "spacing": "sm",
+                  "contents": [{
+                      "type": "text",
+                      "text": "วันเกิด",
+                      "flex": 3,
+                      "size": "sm",
+                      "color": "#AAAAAA"
+                    },
+                    {
+                      "type": "text",
+                      "text": "23/42/5466778",
+                      "flex": 5,
+                      "size": "sm",
+                      "color": "#666666"
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "baseline",
+                  "spacing": "sm",
+                  "contents": [{
+                      "type": "text",
+                      "text": "หมู่เลือด",
+                      "flex": 3,
+                      "size": "sm",
+                      "color": "#AAAAAA"
+                    },
+                    {
+                      "type": "text",
+                      "text": "A (pos)",
+                      "flex": 5,
+                      "size": "sm",
+                      "color": "#666666"
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "baseline",
+                  "spacing": "sm",
+                  "contents": [{
+                      "type": "text",
+                      "text": "เบอร์โทรศัพท์",
+                      "flex": 3,
+                      "size": "sm",
+                      "color": "#AAAAAA"
+                    },
+                    {
+                      "type": "text",
+                      "text": "6879809-98767543",
+                      "flex": 5,
+                      "size": "sm",
+                      "color": "#666666"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    };
+    return client.replyMessage(event.replyToken, msg);
+  }
 }
 const listener = app.listen(process.env.PORT, () => {
   console.log("♥ ♥ l Your app is listening  p on port " + listener.address().port);
