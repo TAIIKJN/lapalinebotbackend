@@ -198,7 +198,6 @@ function handleMessageEvent(event) {
   } else if (eventText.split(" ")[0] == "search") {
     var query = `SELECT * FROM PERSON WHERE CID = '${eventText.split(" ")[1]}'`;
     console.log(query);
-    var kk = "";
     con.connect(function (err) {
       con.query(query, function (err, result, fields) {
         // if (err) throw err;
