@@ -75,9 +75,9 @@ function handleMessageEvent(event) {
               "aspectRatio": "2:1",
               "aspectMode": "cover",
               "action": {
-                "type": "uri",
+                "type": "message",
                 "label": "ประวัติส่วนตัวของฉัน",
-                "uri": "https://www.youtube.com/watch?v=EhKqy4Xd0YU"
+                "text": "ประวัติส่วนตัวของฉัน"
               }
             }
           ]
@@ -323,7 +323,7 @@ function handleMessageEvent(event) {
         return client.replyMessage(event.replyToken, msg);
       });
     });
-  }
+  } else if ()
 }
 const listener = app.listen(process.env.PORT, () => {
   console.log("♥ ♥ l Your app is listening  p on port " + listener.address().port);
