@@ -215,7 +215,7 @@ function handleMessageEvent(event) {
               "layout": "vertical",
               "contents": [{
                   "type": "text",
-                  "text": "กาญจนา เก่งกาจ",
+                  "text": data.PENAME + data.NAME + " " + data.LNAME,
                   "size": "xl",
                   "weight": "bold"
                 },
@@ -231,7 +231,7 @@ function handleMessageEvent(event) {
                       "contents": [{
                           "type": "text",
                           "text": "เลขบัตรปชช",
-                          "flex": 0,
+                          "flex": 3,
                           "size": "sm",
                           "align": "center",
                           "gravity": "center",
@@ -239,7 +239,7 @@ function handleMessageEvent(event) {
                         },
                         {
                           "type": "text",
-                          "text": "12346587900",
+                          "text": data.CID,
                           "flex": 5,
                           "size": "sm",
                           "color": "#666666",
@@ -254,13 +254,13 @@ function handleMessageEvent(event) {
                       "contents": [{
                           "type": "text",
                           "text": "ข้อมูลส่วนตัว",
-                          "flex": 0,
+                          "flex": 3,
                           "size": "sm",
                           "color": "#AAAAAA"
                         },
                         {
                           "type": "text",
-                          "text": "บ้านเลขที่ 22 ม.11 ต.ป่าไผ่ อ.สันทราย จ.เชียงใหม่",
+                          "text": data.ADDRESS,
                           "flex": 5,
                           "size": "sm",
                           "color": "#666666",
@@ -271,19 +271,18 @@ function handleMessageEvent(event) {
                     {
                       "type": "box",
                       "layout": "baseline",
-                      "spacing": "sm",
                       "contents": [{
                           "type": "text",
                           "text": "วันเกิด",
-                          "flex": 2,
+                          "flex": 3,
                           "size": "sm",
                           "weight": "bold",
                           "color": "#AAAAAA"
                         },
                         {
                           "type": "text",
-                          "text": "23/03/2541(22)",
-                          "flex": 4,
+                          "text": data.BIRTH + ' (' + age + 'ปี)',
+                          "flex": 5,
                           "size": "sm",
                           "wrap": true
                         }
@@ -319,7 +318,7 @@ function handleMessageEvent(event) {
               ]
             }
           }
-        }
+        };
         return client.replyMessage(event.replyToken, msg);
       });
     });
