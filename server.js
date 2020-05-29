@@ -207,7 +207,7 @@ function handleMessageEvent(event) {
         var data = result[0];
         var nowyear = new Date().getFullYear();
         
-        console.log(moment(data.BIRTH).format() );
+        console.log(moment(data.BIRTH).format("YYYY") );
         console.log(data.BIRTH.split("-"));
         var age = parseInt(nowyear - data.BIRTH.split("-")[0]);
         var msg = {
