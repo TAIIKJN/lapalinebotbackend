@@ -44,45 +44,46 @@ function handleMessageEvent(event) {
   console.log(eventText)
   if (eventText === "ประวัติส่วนตัว") {
     var msg = {
-      type: "flex",
-      altText: "Flex Message",
-      contents: {
-        type: "bubble",
-        direction: "ltr",
-        body: {
-          type: "box",
-          layout: "vertical",
-          contents: [{
-              type: "image",
-              url: "https://www.img.in.th/images/633ae8afdb0b1ad06d7e457c341b32cd.jpg",
-              align: "center",
-              gravity: "center",
-              size: "full",
-              aspectRatio: "2:1",
-              aspectMode: "cover",
-              action: {
-                type: "uri",
-                label: "QR Code ของฉัน",
-                uri: "https://liff.line.me/1654248577-B07Zaz7m"
+      "type": "flex",
+      "altText": "Flex Message",
+      "contents": {
+        "type": "bubble",
+        "direction": "ltr",
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [{
+              "type": "image",
+              "url": "https://www.img.in.th/images/633ae8afdb0b1ad06d7e457c341b32cd.jpg",
+              "align": "center",
+              "gravity": "center",
+              "size": "full",
+              "aspectRatio": "2:1",
+              "aspectMode": "cover",
+              "action": {
+                "type": "uri",
+                "label": "QR Code ของฉัน",
+                "uri": "https://liff.line.me/1654248577-B07Zaz7m"
               }
             },
             {
-              type: "image",
-              url: "https://www.img.in.th/images/72c3eef9a745bc4aaeb3249471002757.jpg",
-              align: "center",
-              gravity: "center",
-              size: "full",
-              aspectRatio: "2:1",
-              aspectMode: "cover",
-              action: {
-                type: "uri",
-                label: "ประวัติส่วนตัว",
-                uri: "https://www.youtube.com/watch?v=EhKqy4Xd0YU"
+              "type": "image",
+              "url": "https://www.img.in.th/images/58af1d68726b500ecc155583bc27b46d.jpg",
+              "align": "center",
+              "gravity": "center",
+              "size": "full",
+              "aspectRatio": "2:1",
+              "aspectMode": "cover",
+              "action": {
+                "type": "uri",
+                "label": "ประวัติส่วนตัวของฉัน",
+                "uri": "https://www.youtube.com/watch?v=EhKqy4Xd0YU"
               }
             }
           ]
         }
       }
+
     };
     return client.replyMessage(event.replyToken, msg);
   } else if (eventText === "ประเมินสุขภาพ") {
@@ -204,7 +205,7 @@ function handleMessageEvent(event) {
         console.log(result);
         var data = result[0];
         var nowyear = new Date().getFullYear()
-        var age = parseInt(nowyear-data.BIRTH.split("-")[0])
+        var age = parseInt(nowyear - data.BIRTH.split("-")[0])
         var msg = {
           "type": "flex",
           "altText": "Flex Message",
@@ -215,7 +216,7 @@ function handleMessageEvent(event) {
               "layout": "vertical",
               "contents": [{
                   "type": "text",
-                  "text": data.PENAME+data.NAME+" "+data.LNAME,
+                  "text": data.PENAME + data.NAME + " " + data.LNAME,
                   "size": "xl",
                   "weight": "bold"
                 },
@@ -281,7 +282,7 @@ function handleMessageEvent(event) {
                         },
                         {
                           "type": "text",
-                          "text": data.BIRTH+' ('+age+'ปี)',
+                          "text": data.BIRTH + ' (' + age + 'ปี)',
                           "flex": 5,
                           "size": "sm",
                           "wrap": true
