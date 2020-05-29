@@ -207,9 +207,9 @@ function handleMessageEvent(event) {
         var data = result[0];
         var nowyear = new Date().getFullYear();
         
-        console.log(moment(data.BIRTH).format("YYYY") );
-        console.log(data.BIRTH.split("-"));
-        var age = parseInt(nowyear - data.BIRTH.split("-")[0]);
+        // console.log( );
+        // console.log(data.BIRTH.split("-"));
+        var age = parseInt(nowyear - moment(data.BIRTH).format("YYYY"));
         var msg = {
           "type": "flex",
           "altText": "Flex Message",
@@ -286,7 +286,7 @@ function handleMessageEvent(event) {
                         },
                         {
                           "type": "text",
-                          "text": data.BIRTH + ' (' + age + 'ปี)',
+                          "text": moment(data.BIRTH).format("DD/MM/YYYY") + ' (' + age + 'ปี)',
                           "flex": 5,
                           "size": "sm",
                           "wrap": true
