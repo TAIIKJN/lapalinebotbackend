@@ -205,6 +205,9 @@ function handleMessageEvent(event) {
         var data = result[0];
         var nowyear = new Date().getFullYear();
         var age = parseInt(nowyear - data.BIRTH.split("-")[0]);
+        
+        console.log(data.BIRTH);
+        
         var msg = {
           "type": "flex",
           "altText": "Flex Message",
