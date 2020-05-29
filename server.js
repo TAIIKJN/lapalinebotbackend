@@ -196,7 +196,8 @@ function handleMessageEvent(event) {
       });
     });
 
-  } else if (eventText.split(" ")[0] == "search") {
+  } else if  (eventText==555){
+  //(eventText.split(" ")[0] == "search") {
     // var query = `SELECT * FROM PERSON WHERE CID = '${eventText.split(" ")[1]}'`;
     // console.log(query);
     // con.connect(function (err) {
@@ -322,8 +323,8 @@ function handleMessageEvent(event) {
           }
         }
         return client.replyMessage(event.replyToken, msg);
-      });
-    });
+   //   });
+  //  });
   }
   //  else if (eventText === "ประวัติส่วนตัวของฉัน") {
   //   var msg = {
