@@ -323,7 +323,7 @@ function handleMessageEvent(event) {
         return client.replyMessage(event.replyToken, msg);
       });
     });
-  } else if ()
+  } //else if ()
 }
 const listener = app.listen(process.env.PORT, () => {
   console.log("♥ ♥ l Your app is listening  p on port " + listener.address().port);
